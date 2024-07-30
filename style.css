@@ -43,7 +43,7 @@ nav {
   align-items: center;
   justify-content: space-around;
   background-color: var(--blue-dark);
-  color: var(var(--white-white));
+  color: var(--white-white);
 }
 
 nav a {
