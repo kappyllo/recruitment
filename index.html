@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav>
+      <a href="#">Home</a><a href="#">What's new</a><a href="#">Contact</a
+      ><a href="#">Reviews</a>
+    </nav>
+    <div class="container">
+      <div class="main_container">
+        <h1>Create account</h1>
+        <div class="form">
+          <div>
+            <p>E-mail</p>
+            <input placeholder="example@gmail.com" id="mail" type="email" />
+          </div>
+          <div>
+            <p>First name</p>
+            <input placeholder="Jhon" type="text" />
+          </div>
+          <div>
+            <p>Last name</p>
+            <input placeholder="Travolta" type="text" />
+          </div>
+          <div>
+            <p>Password</p>
+            <input type="password" id="pwd_input" />
+            <p class="err hidden" id="eight_err">At least 8 characters</p>
+            <p class="err hidden" id="lowercase_err">
+              Contains one lowercase letter
+            </p>
+            <p class="err hidden" id="uppercase_err">
+              Contains one uppercase letter
+            </p>
+            <p class="err hidden" id="number_err">Contains one number</p>
+            <p class="err hidden" id="special_char_err">
+              Contains one special character (@, #, $, %, etc.)
+            </p>
+          </div>
+          <div>
+            <p>Confirm Password</p>
+            <input type="password" id="conf_pwd_input" />
+            <p class="err hidden" id="conf_pwd_err">Passwords don't match.</p>
+          </div>
+          <div>
+            <p>Phone number</p>
+            <input
+              placeholder="xxx-xxx-xxx"
+              type="tel"
+              pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}"
+            />
+          </div>
+          <div>
+            <p>Birth date</p>
+            <input type="date" id="birth_date" />
+            <p class="err hidden" id="birth_err">
+              You need to be at least 13 years old.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <div class="footer_container">
+        <div class="left_footer_links">
+          <a href="#">Home</a>
+          <a href="#">What's new</a>
+          <a href="#">Contact</a>
+          <a href="#">Reviews</a>
+        </div>
+        <img src="/public/companyLogo.jpg" alt="" />
+        <div class="footer_socials">
+          <div>
+            <a href="">Instagram<img src="/public/ig_icon.svg" alt="" /></a>
+          </div>
+          <div>
+            <a href="">Facebook<img src="/public/fb_icon.svg" alt="" /></a>
+          </div>
+          <div>
+            <a href="">Twitter<img src="/public/x_icon.svg" alt="" /></a>
+          </div>
+        </div>
+      </div>
+      <small
+        >&copy; Copyright <span id="current_year"></span>, Kacper
+        Żuławski</small
+      >
+    </footer>
+    <script src="main.js"></script>
+  </body>
+</html>
