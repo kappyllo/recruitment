@@ -16,48 +16,62 @@
         <h1>Create account</h1>
         <div class="form">
           <div>
-            <p>E-mail</p>
-            <input placeholder="example@gmail.com" id="mail" type="email" />
+            <label for="email">E-mail</label>
+            <input
+              placeholder="example@gmail.com"
+              id="mail"
+              type="email"
+              name="email"
+            />
           </div>
           <div>
-            <p>First name</p>
-            <input placeholder="Jhon" type="text" />
+            <label for="first_name">First name</label>
+            <input placeholder="John" type="text" name="first_name" />
           </div>
           <div>
-            <p>Last name</p>
-            <input placeholder="Travolta" type="text" />
+            <label for="last_name">Last name</label>
+            <input placeholder="Travolta" type="text" name="last_name" />
           </div>
           <div>
-            <p>Password</p>
-            <input type="password" id="pwd_input" />
-            <p class="err hidden" id="eight_err">At least 8 characters</p>
-            <p class="err hidden" id="lowercase_err">
-              Contains one lowercase letter
-            </p>
-            <p class="err hidden" id="uppercase_err">
-              Contains one uppercase letter
-            </p>
-            <p class="err hidden" id="number_err">Contains one number</p>
-            <p class="err hidden" id="special_char_err">
-              Contains one special character (@, #, $, %, etc.)
-            </p>
+            <label for="password">Password</label>
+            <input type="password" id="pwd_input" name="password" />
+            <ul class="popup" id="popup">
+              <li id="uppercase" class="invalid-item">
+                At least one uppercase letter
+              </li>
+              <li id="lowercase" class="invalid-item">
+                At least one lowercase letter
+              </li>
+              <li id="number" class="invalid-item">At least one number</li>
+              <li id="specialChar" class="invalid-item">
+                At least one special character
+              </li>
+              <li id="minLength" class="invalid-item">
+                Minimum length of 8 characters
+              </li>
+            </ul>
           </div>
           <div>
-            <p>Confirm Password</p>
-            <input type="password" id="conf_pwd_input" />
+            <label for="conf_password">Confirm Password</label>
+            <input type="password" id="conf_pwd_input" name="conf_password" />
             <p class="err hidden" id="conf_pwd_err">Passwords don't match.</p>
           </div>
           <div>
-            <p>Phone number</p>
+            <label for="phone_num">Phone number</label>
             <input
               placeholder="xxx-xxx-xxx"
               type="tel"
               pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}"
+              name="phone_num"
+              id="phone_num_input"
             />
+            <p class="err hidden" id="phone_num_err">
+              Please use the correct format e.g. "321-123-456"
+            </p>
           </div>
           <div>
-            <p>Birth date</p>
-            <input type="date" id="birth_date" />
+            <label for="birth">Birth date</label>
+            <input type="date" id="birth_date" name="birth" />
             <p class="err hidden" id="birth_err">
               You need to be at least 13 years old.
             </p>
@@ -73,16 +87,16 @@
           <a href="#">Contact</a>
           <a href="#">Reviews</a>
         </div>
-        <img src="public/companyLogo.jpg" alt="" />
+        <img src="/public/companyLogo.jpg" alt="" />
         <div class="footer_socials">
           <div>
-            <a href="">Instagram<img src="public/ig_icon.svg" alt="" /></a>
+            <a href="">Instagram<img src="/public/ig_icon.svg" alt="" /></a>
           </div>
           <div>
-            <a href="">Facebook<img src="public/fb_icon.svg" alt="" /></a>
+            <a href="">Facebook<img src="/public/fb_icon.svg" alt="" /></a>
           </div>
           <div>
-            <a href="">Twitter<img src="public/x_icon.svg" alt="" /></a>
+            <a href="">Twitter<img src="/public/x_icon.svg" alt="" /></a>
           </div>
         </div>
       </div>

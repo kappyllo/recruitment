@@ -3,14 +3,19 @@ const footerYear = document.getElementById("current_year");
 const birthDateInput = document.getElementById("birth_date");
 const passwordInput = document.getElementById("pwd_input");
 const confPasswordInput = document.getElementById("conf_pwd_input");
+const phoneNumberInput = document.getElementById("phone_num_input");
 
 const birthDayError = document.getElementById("birth_err");
+const phoneNumberError = document.getElementById("phone_num_err");
+
 const confPwdError = document.getElementById("conf_pwd_err");
-const eightPwdError = document.getElementById("eight_err");
-const lowerPwdError = document.getElementById("lowercase_err");
-const upperPwdError = document.getElementById("uppercase_err");
-const numberPwdError = document.getElementById("number_err");
-const specialPwdError = document.getElementById("special_char_err");
+
+const popup = document.getElementById("popup");
+const uppercaseItem = document.getElementById("uppercase");
+const lowercaseItem = document.getElementById("lowercase");
+const numberItem = document.getElementById("number");
+const specialCharItem = document.getElementById("specialChar");
+const minLengthItem = document.getElementById("minLength");
 
 let d = new Date();
 const currYear = d.getFullYear();
@@ -36,32 +41,65 @@ birthDateInput.addEventListener("change", () => {
 
 // Cheking if password matches after pressing a key in confirm password input.
 confPasswordInput.addEventListener("keyup", () => {
-  if (passwordInput.value !== confPasswordInput.value) {
-    confPwdError.classList.remove("hidden");
-    confPasswordInput.classList.add("err_input");
-  } else {
+  const value = confPasswordInput.value;
+
+  passwordInput.value !== value
+    ? confPwdError.classList.remove("hidden")
+    : confPwdError.classList.add("hidden");
+
+  passwordInput.value !== value
+    ? confPasswordInput.classList.add("err_input")
+    : confPasswordInput.classList.remove("err_input");
+
+  if (value === "") {
     confPwdError.classList.add("hidden");
-    confPasswordInput.classList.remove("err_input");
   }
 });
 
 // Cheking if password match requirements and diaplaying error message after pressing a key in password input.
 passwordInput.addEventListener("keyup", () => {
-  const show = (element) => element.classList.remove("hidden");
-  const hide = (element) => element.classList.add("hidden");
-  !isEightChar(passwordInput.value) ? show(eightPwdError) : hide(eightPwdError);
-  !containsNumber(passwordInput.value)
-    ? show(numberPwdError)
-    : hide(numberPwdError);
-  !containsUpper(passwordInput.value)
-    ? show(upperPwdError)
-    : hide(upperPwdError);
-  !containsLower(passwordInput.value)
-    ? show(lowerPwdError)
-    : hide(lowerPwdError);
-  !containsSpecial(passwordInput.value)
-    ? show(specialPwdError)
-    : hide(specialPwdError);
+  const value = passwordInput.value;
+
+  const uppercaseValid = containsUpper(value);
+  const lowercaseValid = containsLower(value);
+  const numberValid = containsNumber(value);
+  const specialCharValid = containsSpecial(value);
+  const minLengthValid = isEightChar(value);
+
+  // Updating validation items
+  uppercaseItem.className = uppercaseValid ? "valid-item" : "invalid-item";
+  lowercaseItem.className = lowercaseValid ? "valid-item" : "invalid-item";
+  numberItem.className = numberValid ? "valid-item" : "invalid-item";
+  specialCharItem.className = specialCharValid ? "valid-item" : "invalid-item";
+  minLengthItem.className = minLengthValid ? "valid-item" : "invalid-item";
+
+  // Displaying or hiding popup
+  popup.style.display = value ? "block" : "none";
+
+  const allValid =
+    uppercaseValid &&
+    lowercaseValid &&
+    numberValid &&
+    specialCharValid &&
+    minLengthValid;
+  popup.className = allValid ? "popup valid" : "popup";
+});
+
+// Hiding pop-up after leaving the input field.
+passwordInput.addEventListener("blur", function () {
+  popup.style.display = "none";
+});
+
+// Checking if number is in the correct format.
+phoneNumberInput.addEventListener("keyup", () => {
+  const value = phoneNumberInput.value;
+  !/^\d{3}-\d{3}-\d{3}$/.test(value)
+    ? phoneNumberError.classList.remove("hidden")
+    : phoneNumberError.classList.add("hidden");
+
+  if (value === "") {
+    phoneNumberError.classList.add("hidden");
+  }
 });
 
 function isEightChar(str) {
