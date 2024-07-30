@@ -16,25 +16,35 @@
         <h1>Create account</h1>
         <div class="form">
           <div>
-            <label for="email">E-mail</label>
+            <label for="mail">E-mail</label>
             <input
               placeholder="example@gmail.com"
               id="mail"
               type="email"
-              name="email"
+              autocomplete="off"
             />
           </div>
           <div>
             <label for="first_name">First name</label>
-            <input placeholder="John" type="text" name="first_name" />
+            <input
+              placeholder="John"
+              type="text"
+              name="first_name"
+              autocomplete="off"
+            />
           </div>
           <div>
             <label for="last_name">Last name</label>
-            <input placeholder="Travolta" type="text" name="last_name" />
+            <input
+              placeholder="Travolta"
+              type="text"
+              name="last_name"
+              autocomplete="off"
+            />
           </div>
           <div>
             <label for="password">Password</label>
-            <input type="password" id="pwd_input" name="password" />
+            <input type="password" id="pwd_input" autocomplete="off" />
             <ul class="popup" id="popup">
               <li id="uppercase" class="invalid-item">
                 At least one uppercase letter
@@ -52,8 +62,8 @@
             </ul>
           </div>
           <div>
-            <label for="conf_password">Confirm Password</label>
-            <input type="password" id="conf_pwd_input" name="conf_password" />
+            <label for="conf_pwd_input">Confirm Password</label>
+            <input type="password" id="conf_pwd_input" autocomplete="off" />
             <p class="err hidden" id="conf_pwd_err">Passwords don't match.</p>
           </div>
           <div>
@@ -64,14 +74,15 @@
               pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}"
               name="phone_num"
               id="phone_num_input"
+              autocomplete="off"
             />
             <p class="err hidden" id="phone_num_err">
               Please use the correct format e.g. "321-123-456"
             </p>
           </div>
           <div>
-            <label for="birth">Birth date</label>
-            <input type="date" id="birth_date" name="birth" />
+            <label for="birth_date">Birth date</label>
+            <input type="date" id="birth_date" autocomplete="off" />
             <p class="err hidden" id="birth_err">
               You need to be at least 13 years old.
             </p>
@@ -87,16 +98,16 @@
           <a href="#">Contact</a>
           <a href="#">Reviews</a>
         </div>
-        <img src="public/companyLogo.jpg" alt="" />
+        <img src="/public/companyLogo.jpg" alt="" />
         <div class="footer_socials">
           <div>
-            <a href="">Instagram<img src="public/ig_icon.svg" alt="" /></a>
+            <a href="">Instagram<img src="/public/ig_icon.svg" alt="" /></a>
           </div>
           <div>
-            <a href="">Facebook<img src="public/fb_icon.svg" alt="" /></a>
+            <a href="">Facebook<img src="/public/fb_icon.svg" alt="" /></a>
           </div>
           <div>
-            <a href="">Twitter<img src="public/x_icon.svg" alt="" /></a>
+            <a href="">Twitter<img src="/public/x_icon.svg" alt="" /></a>
           </div>
         </div>
       </div>
